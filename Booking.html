@@ -1,68 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Build Your Umrah Trip</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="assets/css/styles.css">
-</head>
+<!-- Hotels -->
+<div class="grid md:grid-cols-3 gap-6 mb-10">
 
-<body class="bg-gray-100">
-
-<div class="max-w-6xl mx-auto p-6">
-
-  <h1 class="text-3xl font-bold text-center mb-10">Build Your Umrah Trip</h1>
-
-  <!-- Hotels -->
-  <div class="grid md:grid-cols-3 gap-6 mb-10">
-
-    <div class="card">
-      <h2 class="card-title">Jeddah Hotel</h2>
-      <select id="jeddah" class="select">
-        <option>Hotel Al Salam</option>
-        <option>Jeddah Tower Hotel</option>
-      </select>
-    </div>
-
-    <div class="card">
-      <h2 class="card-title">Makkah Hotel</h2>
-      <select id="makkah" class="select">
-        <option>Makkah Grand</option>
-        <option>Royal Makkah Hotel</option>
-      </select>
-    </div>
-
-    <div class="card">
-      <h2 class="card-title">Madinah Hotel</h2>
-      <select id="madinah" class="select">
-        <option>Madinah Inn</option>
-        <option>Prophet’s Rest</option>
-      </select>
-    </div>
-
-  </div>
-
-  <!-- Transport -->
-  <div class="bg-white p-6 rounded-2xl shadow mb-10">
-    <h2 class="text-xl font-semibold mb-4">Transportation</h2>
-    <div class="flex gap-4">
-      <button onclick="selectBus('Standard')" class="bus-btn">Standard Bus</button>
-      <button onclick="selectBus('VIP')" class="bus-btn">VIP Bus</button>
+  <!-- JEDDAH -->
+  <div class="card">
+    <h2 class="card-title">Jeddah Hotel</h2>
+    <div class="hotel-list">
+      <div class="hotel-card" onclick="selectHotel('jeddah','Hotel Al Salam', this)">
+        <img src="assets/images/hotel1.jpg" alt="">
+        <p>Hotel Al Salam</p>
+      </div>
+      <div class="hotel-card" onclick="selectHotel('jeddah','Jeddah Tower Hotel', this)">
+        <img src="assets/images/hotel2.jpg" alt="">
+        <p>Jeddah Tower Hotel</p>
+      </div>
     </div>
   </div>
 
-  <!-- Summary -->
-  <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-200">
-    <h2 class="text-xl font-semibold mb-4">Trip Summary</h2>
-    <ul id="summary" class="space-y-2"></ul>
-    <button class="mt-6 w-full py-4 bg-emerald-600 text-white rounded-xl font-semibold">
-      Continue
-    </button>
+  <!-- MAKKAH -->
+  <div class="card">
+    <h2 class="card-title">Makkah Hotel</h2>
+    <div class="hotel-list">
+      <div class="hotel-card" onclick="selectHotel('makkah','Makkah Grand', this)">
+        <img src="assets/images/hotel1.jpg" alt="">
+        <p>Makkah Grand</p>
+      </div>
+      <div class="hotel-card" onclick="selectHotel('makkah','Royal Makkah Hotel', this)">
+        <img src="assets/images/hotel2.jpg" alt="">
+        <p>Royal Makkah Hotel</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MADINAH -->
+  <div class="card">
+    <h2 class="card-title">Madinah Hotel</h2>
+    <div class="hotel-list">
+      <div class="hotel-card" onclick="selectHotel('madinah','Madinah Inn', this)">
+        <img src="assets/images/hotel1.jpg" alt="">
+        <p>Madinah Inn</p>
+      </div>
+      <div class="hotel-card" onclick="selectHotel('madinah','Prophet’s Rest', this)">
+        <img src="assets/images/hotel2.jpg" alt="">
+        <p>Prophet’s Rest</p>
+      </div>
+    </div>
   </div>
 
 </div>
-
-<script src="assets/js/app.js"></script>
-</body>
-</html>
