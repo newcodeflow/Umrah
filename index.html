@@ -1,147 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Centralized Umrah Booking</title>
-
-  <!-- Tailwind CDN -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Umrah Central</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-  </style>
 </head>
+
 <body class="bg-gray-50 text-gray-900">
 
-<!-- HERO -->
-<section class="min-h-screen flex flex-col justify-center items-center px-6 text-center">
-  <h1 class="text-4xl md:text-6xl font-bold max-w-4xl">
-    Book Your Complete <span class="text-emerald-600">Umrah Journey</span> in One Place
+<section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
+  <h1 class="text-5xl font-bold max-w-4xl">
+    One Platform for Your Complete <span class="text-emerald-600">Umrah Journey</span>
   </h1>
-  <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl">
-    Hotels, transportation, and full itineraries from Jeddah to Makkah and Madinah — all seamlessly connected.
+
+  <p class="mt-6 text-xl text-gray-600 max-w-2xl">
+    Book hotels, transportation, and full Umrah itineraries seamlessly.
   </p>
-  <button onclick="startBooking()"
-    class="mt-10 px-10 py-4 bg-emerald-600 text-white rounded-xl text-lg font-semibold hover:bg-emerald-700 transition">
+
+  <a href="booking.html"
+     class="mt-10 px-10 py-4 bg-emerald-600 text-white rounded-xl text-lg font-semibold hover:bg-emerald-700 transition">
     Start Booking
-  </button>
+  </a>
 </section>
-
-<!-- BOOKING -->
-<section id="booking" class="hidden max-w-6xl mx-auto px-6 pb-20">
-  <h2 class="text-3xl font-bold text-center mb-12">Build Your Umrah Trip</h2>
-
-  <!-- HOTELS -->
-  <div class="grid md:grid-cols-3 gap-6 mb-12">
-    <div class="card">
-      <h3 class="card-title">Jeddah Hotel</h3>
-      <select class="select" id="jeddah">
-        <option>Hotel Al Salam</option>
-        <option>Jeddah Tower Hotel</option>
-      </select>
-    </div>
-
-    <div class="card">
-      <h3 class="card-title">Makkah Hotel</h3>
-      <select class="select" id="makkah">
-        <option>Makkah Grand</option>
-        <option>Royal Makkah Hotel</option>
-      </select>
-    </div>
-
-    <div class="card">
-      <h3 class="card-title">Madinah Hotel</h3>
-      <select class="select" id="madinah">
-        <option>Madinah Inn</option>
-        <option>Prophet’s Rest</option>
-      </select>
-    </div>
-  </div>
-
-  <!-- TRANSPORT -->
-  <div class="bg-white rounded-2xl shadow p-8 mb-12">
-    <h3 class="text-xl font-semibold mb-4">Transportation</h3>
-    <div class="flex gap-4">
-      <button onclick="selectBus('Standard')" class="bus-btn">Standard Bus</button>
-      <button onclick="selectBus('VIP')" class="bus-btn">VIP Bus</button>
-    </div>
-  </div>
-
-  <!-- SUMMARY -->
-  <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-8">
-    <h3 class="text-xl font-semibold mb-4">Trip Summary</h3>
-    <ul class="space-y-2 text-gray-700" id="summary"></ul>
-    <button class="mt-6 w-full py-4 bg-emerald-600 text-white rounded-xl font-semibold">
-      Proceed to Booking
-    </button>
-  </div>
-</section>
-
-<script>
-let selectedBus = 'Standard';
-
-function startBooking() {
-  document.getElementById('booking').classList.remove('hidden');
-  window.scrollTo({ top: document.getElementById('booking').offsetTop, behavior: 'smooth' });
-}
-
-function selectBus(type) {
-  selectedBus = type;
-  updateSummary();
-}
-
-function updateSummary() {
-  const j = document.getElementById('jeddah').value;
-  const m = document.getElementById('makkah').value;
-  const md = document.getElementById('madinah').value;
-
-  document.getElementById('summary').innerHTML = `
-    <li>📍 Jeddah Hotel: <strong>${j}</strong></li>
-    <li>🕋 Makkah Hotel: <strong>${m}</strong></li>
-    <li>🕌 Madinah Hotel: <strong>${md}</strong></li>
-    <li>🚌 Transport: <strong>${selectedBus} Bus</strong></li>
-    <li class="mt-4 text-lg font-bold">Estimated Total: SAR 9,500</li>
-  `;
-}
-
-document.querySelectorAll('select').forEach(el => el.addEventListener('change', updateSummary));
-updateSummary();
-</script>
-
-<!-- COMPONENT STYLES -->
-<style>
-  .card {
-    background: white;
-    padding: 24px;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-  }
-  .card-title {
-    font-weight: 600;
-    margin-bottom: 12px;
-  }
-  .select {
-    width: 100%;
-    padding: 12px;
-    border-radius: 12px;
-    border: 1px solid #e5e7eb;
-  }
-  .bus-btn {
-    padding: 14px 24px;
-    border-radius: 14px;
-    border: 2px solid #d1fae5;
-    font-weight: 600;
-    color: #065f46;
-    background: #ecfdf5;
-  }
-  .bus-btn:hover {
-    background: #d1fae5;
-  }
-</style>
 
 </body>
 </html>
