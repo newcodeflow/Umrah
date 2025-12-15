@@ -5,60 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Umrah Booking</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-
 <body class="bg-gray-100">
 
-<div class="max-w-6xl mx-auto p-6">
+<div class="max-w-6xl mx-auto p-6 flex flex-col items-center">
 
-  <!-- PROGRESS -->
-  <div class="flex justify-between mb-10 text-sm font-semibold">
-    <div id="step1-ind" class="step text-blue-600">Hotels</div>
-    <div id="step2-ind" class="step text-gray-400">Transport</div>
-    <div id="step3-ind" class="step text-gray-400">Review</div>
+  <!-- PROGRESS INDICATOR -->
+  <div class="w-full flex justify-between items-center mb-10 relative">
+    <!-- Line -->
+    <div class="absolute top-1/2 left-0 right-0 h-1 bg-gray-300 -z-10"></div>
+    <!-- Steps -->
+    <div id="step1-ind" class="step flex flex-col items-center text-blue-600 font-semibold">
+      <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center">1</div>
+      <span class="mt-2 text-sm">Hotels</span>
+    </div>
+    <div id="step2-ind" class="step flex flex-col items-center text-gray-400 font-semibold">
+      <div class="w-8 h-8 rounded-full bg-gray-300 text-white flex items-center justify-center">2</div>
+      <span class="mt-2 text-sm">Transport</span>
+    </div>
+    <div id="step3-ind" class="step flex flex-col items-center text-gray-400 font-semibold">
+      <div class="w-8 h-8 rounded-full bg-gray-300 text-white flex items-center justify-center">3</div>
+      <span class="mt-2 text-sm">Review</span>
+    </div>
   </div>
 
-  <!-- STEP 1 -->
+  <!-- STEP 1: Hotels -->
   <section id="step1">
     <h1 class="text-4xl font-bold mb-6 text-center">Choose Hotels</h1>
-
     <div class="grid md:grid-cols-3 gap-6">
 
       <!-- Jeddah -->
-      <div class="card bg-white p-4 rounded-lg shadow">
+      <div class="bg-white p-4 rounded-lg shadow">
         <h2 class="text-xl font-semibold mb-2">Jeddah</h2>
-        <div class="hotel-card cursor-pointer border p-2 rounded mb-2" onclick="selectHotel('jeddah','Hotel Al Salam','standard',this)">
+        <div class="cursor-pointer border p-2 rounded mb-2" onclick="selectHotel('jeddah','Hotel Al Salam','standard',this)">
           <img src="assets/images/hotel1.jpg" class="w-full h-32 object-cover rounded mb-1">
           <p>Hotel Al Salam<br><span class="text-sm text-gray-500">Standard</span></p>
         </div>
-        <div class="hotel-card cursor-pointer border p-2 rounded" onclick="selectHotel('jeddah','Jeddah Tower','premium',this)">
+        <div class="cursor-pointer border p-2 rounded" onclick="selectHotel('jeddah','Jeddah Tower','premium',this)">
           <img src="assets/images/hotel2.jpg" class="w-full h-32 object-cover rounded mb-1">
           <p>Jeddah Tower<br><span class="text-sm text-gray-500">Premium</span></p>
         </div>
       </div>
 
       <!-- Makkah -->
-      <div class="card bg-white p-4 rounded-lg shadow">
+      <div class="bg-white p-4 rounded-lg shadow">
         <h2 class="text-xl font-semibold mb-2">Makkah</h2>
-        <div class="hotel-card cursor-pointer border p-2 rounded mb-2" onclick="selectHotel('makkah','Makkah Hotel 1','standard',this)">
+        <div class="cursor-pointer border p-2 rounded mb-2" onclick="selectHotel('makkah','Makkah Hotel 1','standard',this)">
           <img src="assets/images/hotel3.jpg" class="w-full h-32 object-cover rounded mb-1">
           <p>Makkah Hotel 1<br><span class="text-sm text-gray-500">Standard</span></p>
         </div>
-        <div class="hotel-card cursor-pointer border p-2 rounded" onclick="selectHotel('makkah','Makkah Hotel 2','premium',this)">
+        <div class="cursor-pointer border p-2 rounded" onclick="selectHotel('makkah','Makkah Hotel 2','premium',this)">
           <img src="assets/images/hotel4.jpg" class="w-full h-32 object-cover rounded mb-1">
           <p>Makkah Hotel 2<br><span class="text-sm text-gray-500">Premium</span></p>
         </div>
       </div>
 
       <!-- Madinah -->
-      <div class="card bg-white p-4 rounded-lg shadow">
+      <div class="bg-white p-4 rounded-lg shadow">
         <h2 class="text-xl font-semibold mb-2">Madinah</h2>
-        <div class="hotel-card cursor-pointer border p-2 rounded mb-2" onclick="selectHotel('madinah','Madinah Hotel 1','standard',this)">
+        <div class="cursor-pointer border p-2 rounded mb-2" onclick="selectHotel('madinah','Madinah Hotel 1','standard',this)">
           <img src="assets/images/hotel5.jpg" class="w-full h-32 object-cover rounded mb-1">
           <p>Madinah Hotel 1<br><span class="text-sm text-gray-500">Standard</span></p>
         </div>
-        <div class="hotel-card cursor-pointer border p-2 rounded" onclick="selectHotel('madinah','Madinah Hotel 2','premium',this)">
+        <div class="cursor-pointer border p-2 rounded" onclick="selectHotel('madinah','Madinah Hotel 2','premium',this)">
           <img src="assets/images/hotel6.jpg" class="w-full h-32 object-cover rounded mb-1">
           <p>Madinah Hotel 2<br><span class="text-sm text-gray-500">Premium</span></p>
         </div>
@@ -69,24 +78,21 @@
     <button onclick="nextStep(2)" class="mt-6 w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">Next</button>
   </section>
 
-  <!-- STEP 2 -->
-  <section id="step2" class="hidden">
-    <h1 class="text-4xl font-bold mb-6 text-center">Choose Transport</h1>
-
-    <div class="flex justify-center gap-6 mb-6">
+  <!-- STEP 2: Transport -->
+  <section id="step2" class="hidden w-full text-center">
+    <h1 class="text-4xl font-bold mb-6">Choose Transport</h1>
+    <div class="flex justify-center gap-6 mb-6 flex-wrap">
       <button onclick="selectBus('Standard')" class="py-3 px-6 bg-gray-200 rounded-lg hover:bg-gray-300 transition">Standard Bus</button>
       <button onclick="selectBus('VIP')" class="py-3 px-6 bg-yellow-400 rounded-lg hover:bg-yellow-500 transition">VIP Bus</button>
     </div>
-
     <button onclick="nextStep(3)" class="mt-4 w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">Next</button>
   </section>
 
-  <!-- STEP 3 -->
-  <section id="step3" class="hidden">
-    <h1 class="text-4xl font-bold mb-6 text-center">Review & Confirm</h1>
-
-    <div class="bg-white p-6 rounded-2xl shadow">
-      <ul id="summary" class="space-y-3 text-lg"></ul>
+  <!-- STEP 3: Review & Confirm -->
+  <section id="step3" class="hidden w-full text-center">
+    <h1 class="text-4xl font-bold mb-6">Review & Confirm</h1>
+    <div class="bg-white p-6 rounded-2xl shadow max-w-2xl mx-auto">
+      <ul id="summary" class="space-y-3 text-lg text-left"></ul>
       <button class="mt-6 w-full py-4 bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition">
         Confirm Booking
       </button>
@@ -96,5 +102,38 @@
 </div>
 
 <script src="assets/js/app.js"></script>
+
+<script>
+function updateProgress(step) {
+  const steps = [1, 2, 3];
+  steps.forEach(i => {
+    const circle = document.getElementById(`step${i}-ind`).children[0];
+    const label = document.getElementById(`step${i}-ind`);
+    if (i === step) {
+      circle.classList.remove('bg-gray-300','text-white');
+      circle.classList.add('bg-blue-600','text-white');
+      label.classList.remove('text-gray-400');
+      label.classList.add('text-blue-600');
+    } else if (i < step) {
+      circle.classList.remove('bg-gray-300');
+      circle.classList.add('bg-blue-400','text-white');
+      label.classList.remove('text-gray-400');
+      label.classList.add('text-blue-400');
+    } else {
+      circle.classList.remove('bg-blue-600','bg-blue-400','text-white');
+      circle.classList.add('bg-gray-300','text-white');
+      label.classList.remove('text-blue-600','text-blue-400');
+      label.classList.add('text-gray-400');
+    }
+  });
+}
+
+function nextStep(step) {
+  document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
+  document.getElementById(`step${step}`).classList.remove('hidden');
+  updateProgress(step);
+}
+</script>
+
 </body>
 </html>
