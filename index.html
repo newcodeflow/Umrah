@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Umrah Booking Prototype</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+    text-align: center;
+  }
+  h1 { font-size: 3rem; margin-bottom: 20px; }
+  select, button { font-size: 1.2rem; padding: 10px; margin: 10px; border-radius: 8px; border: none; }
+  button { background-color: #fff; color: #7b2ff7; cursor: pointer; font-weight: bold; }
+  button:hover { background-color: #7b2ff7; color: #fff; }
+  .itinerary { background: rgba(255,255,255,0.2); padding: 20px; margin-top: 20px; border-radius: 12px; min-width: 300px; }
+  @media (max-width: 600px) {
+    h1 { font-size: 6vw; }
+    select, button { font-size: 4vw; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Centralized Umrah Booking</h1>
+
+<label>Jeddah Hotel:</label>
+<select id="hotelJeddah">
+  <option value="Hotel Al Salam">Hotel Al Salam</option>
+  <option value="Jeddah Tower Hotel">Jeddah Tower Hotel</option>
+</select>
+
+<label>Makkah Hotel:</label>
+<select id="hotelMakkah">
+  <option value="Makkah Grand">Makkah Grand</option>
+  <option value="Royal Makkah Hotel">Royal Makkah Hotel</option>
+</select>
+
+<label>Madina Hotel:</label>
+<select id="hotelMadina">
+  <option value="Madina Inn">Madina Inn</option>
+  <option value="Prophet's Rest Hotel">Prophet's Rest Hotel</option>
+</select>
+
+<label>Bus Options:</label>
+<select id="busOption">
+  <option value="Standard Bus">Standard Bus</option>
+  <option value="VIP Bus">VIP Bus</option>
+</select>
+
+<button onclick="bookTrip()">Book Trip</button>
+
+<div class="itinerary" id="itinerary"></div>
+
+<script>
+function bookTrip() {
+  const hotelJ = document.getElementById('hotelJeddah').value;
+  const hotelM = document.getElementById('hotelMakkah').value;
+  const hotelMd = document.getElementById('hotelMadina').value;
+  const bus = document.getElementById('busOption').value;
+
+  const itineraryDiv = document.getElementById('itinerary');
+  itineraryDiv.innerHTML = `
+    <h2>Your Trip Itinerary</h2>
+    <ul>
+      <li>Arrival in Jeddah - Stay at: ${hotelJ}</li>
+      <li>Travel to Makkah - Stay at: ${hotelM}</li>
+      <li>Travel to Madina - Stay at: ${hotelMd}</li>
+      <li>Transportation: ${bus} between cities</li>
+      <li>Total Price: $2,500 (sample)</li>
+    </ul>
+  `;
+}
+</script>
+
+</body>
+</html>
